@@ -1,0 +1,47 @@
+﻿@model IEnumerable<Item>
+@{
+    ViewData["Title"] = "List of Item";
+}
+
+<div class="row">
+    @foreach (var item in Model)
+    {
+        <div class="col-md-4 col-xs-6 border-primary mb-3 d-flex">
+            <div class="card mb-4 d-flex flex-column" style="max-width: 500px; height: 100%;">
+                <div class="row g-0 flex-grow-1">
+                    <div class="col-md-12">
+                        <div class="card-header text-white bg-dark">
+                            <p class="card-text">
+                                <h5 class="card-title">
+                                    @item.Name
+                                    <a class="text-white float-right"></a>
+                                </h5>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-md-5">
+                        <img src="@item.imgUrl" width="100%" alt="@item.Name" />
+                        <img src="@item.imgUrl2" width="100%" alt="@item.Name" />
+                    </div>
+                    <div class="col-md-7 d-flex flex-column">
+                        <div class="card-body flex-grow-1">
+                            <p class="card-text">@item.Description</p>
+                            <p class="card-text"><b>Price: </b>@item.Price</p>
+                            <p class="card-text"><b>Stock: </b>@item.Stock</p>
+                            <p class="card-text"><b>Manufacturer: </b>@item.Manufacturer.Name</p>
+                            <p class="card-text"><b>Category: </b>@item.Category.Name</p>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="card-footer mt-auto">
+                            <p class="card-text">
+                                <a class="btn btn-primary float-right text-light">Details</a>
+                                <a class="btn btn-success text-white">Add to Cart</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>
