@@ -1,1 +1,89 @@
-﻿
+﻿@model NewItemVM
+@using webLaptopTest.Data;
+@{
+    ViewData["Title"] = "Create item";
+}
+<div class="row">
+    <div class="col-md-8 offset-2">
+        <p>
+            <h4>Create item</h4>
+        </p>
+        <div class="row">
+            <div class="col-md-8 offset-2">
+                <form asp-action="Create">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label asp-for="Name" class="control-label"></label>
+                                <input asp-for="Name" class="form-control" />
+                                <span asp-validation-for="Name" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="Price" class="control-label"></label>
+                                <input asp-for="Price" type="number" class="form-control" />
+                                <span asp-validation-for="Price" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="Stock" class="control-label"></label>
+                                <input asp-for="Stock" type="number" class="form-control" />
+                                <span asp-validation-for="Stock" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="imgUrl" class="control-label"></label>
+                                <input asp-for="imgUrl" class="form-control" />
+                                <span asp-validation-for="imgUrl" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="imgUrl2" class="control-label"></label>
+                                <input asp-for="imgUrl2" class="form-control" />
+                                <span asp-validation-for="imgUrl2" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label asp-for="CategoryId" class="control-label"></label>
+                                <select asp-for="CategoryId" class="form-control" asp-items="ViewBag.Category"></select>
+                                <span asp-validation-for="CategoryId" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="ManufacturerId" class="control-label"></label>
+                                <select asp-for="ManufacturerId" class="form-control" asp-items="ViewBag.Manufacturer"></select>
+                                <span asp-validation-for="ManufacturerId" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label asp-for="Description" class="control-label"></label>
+                                <textarea asp-for="Description" class="form-control"></textarea>
+                                <span asp-validation-for="Description" class="text-danger"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" value="Create" class="btn btn-outline-success float-right" />
+                        <a class="btn btn-outline-secondary" asp-action="Index">Back</a>
+                    </div>
+                </form>
+            </div>
+            <div class="col-md-4 offset-2">
+                <img width="100%" id="ImageUrlPreview1" />
+            </div>
+            <div class="col-md-4">
+                <img width="100%" id="ImageUrlPreview2" />
+            </div>
+        </div>
+    </div>
+</div>
+@section Scripts {
+    <script>
+        $("#imgUrl").on("change", function () {
+            var output = document.getElementById("ImageUrlPreview1");
+            output.src = $(this).val();
+        })
+        $("#imgUrl2").on("change", function () {
+            var output = document.getElementById("ImageUrlPreview2");
+            output.src = $(this).val();
+        })
+    </script>
+}

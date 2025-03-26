@@ -1,19 +1,24 @@
-﻿@model Category
-
+﻿@model Item
 @{
-    ViewData["Title"] = "Delete Category";
+    ViewData["Title"] = "Delete Item";
 }
-
 <div class="row text">
     <div class="col-md-8 offset-2">
         <p>
             <h1>Delete @Model.Name</h1>
         </p>
         <div class="row">
+            <div class="col-md-4 offset-2">
+                <img src="@Model.imgUrl" width="100%" alt="@Model.Name">
+            </div>
+
+            <div class="col-md-4">
+                <img src="@Model.imgUrl2" width="100%" alt="@Model.Name">
+            </div>
+            <div class="col-md-4 offset-2">
+                <p class="card-text">@Model.Description</p>
+            </div>
             <div class="col-md-8 offset-2">
-                <div class="form-group text-center">
-                    <img class="border-info rounded-circle" style="max-width: 150px" id="ProfilePicturePreview" />
-                </div>
                 <div class="form-group">
                     <label asp-for="Name" class="control-label"></label>
                     <input asp-for="Name" class="form-control" readonly />

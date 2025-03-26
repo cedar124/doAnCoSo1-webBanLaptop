@@ -25,16 +25,16 @@
 
                         @if(User.Identity.IsAuthenticated && User.IsInRole("Admin"))
                         {
-                                <li class="nav-item dropdown">
-                                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        <i class="bi bi-gear"></i> Management
-                                    </a>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <i class="bi bi-gear"></i> Management
+                                </a>
 
-                                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                        <a class="dropdown-item" asp-controller="Category" asp-action="Index"><i class="bi bi-camera-reels"></i> Categories</a>
-                                        <a class="dropdown-item" asp-controller="Manufacturer" asp-action="Index"><i class="bi bi-headset"></i> Manufacturers</a>
-                                    </div>
-                                </li>
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" asp-controller="Category" asp-action="Index"><i class="bi bi-tag"></i> Categories</a>
+                                <a class="dropdown-item" asp-controller="Manufacturer" asp-action="Index"><i class="bi bi-tools"></i> Manufacturers</a>
+                                </div>
+                            </li>
                         }
                         
                     </ul>

@@ -1,13 +1,12 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
-using Microsoft.EntityFrameworkCore;
 using System;
 using System.Linq;
 using System.Threading.Tasks;
 using webLaptopTest.Data.Services;
 using webLaptopTest.Data.Static;
-using webLaptopTest.Data.ViewModels;
+using webLaptopTest.Models;
 
 namespace webLaptopTest.Controllers
 {
@@ -31,12 +30,14 @@ namespace webLaptopTest.Controllers
         [AllowAnonymous]
         public async Task<IActionResult> Filter(string searchString)
         {
-            var AllItem = await _service.GetAllAsync(n => n.Category);
+            var AllItem = await _service.GetAllAsync(n => n.Category, n => n.Manufacturer);
             if (!string.IsNullOrEmpty(searchString))
             {
-                //var filteredResult = allMovies.Where(n => n.Name.ToLower().Contains(searchString.ToLower()) || n.Description.ToLower().Contains(searchString.ToLower())).ToList();
-                var filteredResultNew = AllItem.Where(n => string.Equals(n.Name, searchString, StringComparison.CurrentCultureIgnoreCase) || string.Equals(n.Description, searchString, StringComparison.CurrentCultureIgnoreCase)).ToList();
-                return View("Index", filteredResultNew);
+                //var filteredResult = allItem.Where(n => n.Name.ToLower().Contains(searchString.ToLower()) || n.Description.ToLower().Contains(searchString.ToLower())).ToList();
+                //var filteredResultNewer = AllItem.Where(n => string.Equals(n.Name, searchString, StringComparison.CurrentCultureIgnoreCase) || string.Equals(n.Description, searchString, StringComparison.CurrentCultureIgnoreCase)).ToList();
+                //var filteredResultNewerer = AllItem.Where(n => n.Name.Contains(searchString) || n.Description.Contains(searchString)).ToList();
+                var filteredResultNewererer = AllItem.Where(n => n.Name.Contains(searchString, StringComparison.CurrentCultureIgnoreCase)|| n.Description.Contains(searchString, StringComparison.CurrentCultureIgnoreCase)).ToList();
+                return View("Index", filteredResultNewererer);
             }
             return View("Index", AllItem);
         }
@@ -85,6 +86,7 @@ namespace webLaptopTest.Controllers
                 Name = item.Name,
                 Description = item.Description,
                 Price = item.Price,
+                Stock = item.Stock,
                 imgUrl = item.imgUrl,
                 imgUrl2 = item.imgUrl2,
                 CategoryId = item.CategoryId,
@@ -92,8 +94,8 @@ namespace webLaptopTest.Controllers
             };
 
             var ItemDropdownsData = await _service.GetNewItemDropdownsValues();
-            ViewBag.Cinemas = new SelectList(ItemDropdownsData.Category, "Id", "Name");
-            ViewBag.Producers = new SelectList(ItemDropdownsData.Manufacturer, "Id", "FullName");
+            ViewBag.Category = new SelectList(ItemDropdownsData.Category, "Id", "Name");
+            ViewBag.Manufacturer = new SelectList(ItemDropdownsData.Manufacturer, "Id", "Name");
             return View(response);
         }
 
@@ -104,11 +106,29 @@ namespace webLaptopTest.Controllers
             if (!ModelState.IsValid)
             {
                 var ItemDropdownsData = await _service.GetNewItemDropdownsValues();
-                ViewBag.Cinemas = new SelectList(ItemDropdownsData.Category, "Id", "Name");
-                ViewBag.Producers = new SelectList(ItemDropdownsData.Manufacturer, "Id", "FullName");
+                ViewBag.Category = new SelectList(ItemDropdownsData.Category, "Id", "Name");
+                ViewBag.Manufacturer = new SelectList(ItemDropdownsData.Manufacturer, "Id", "Name");
                 return View(Item);
             }
             await _service.UpdateItemAsync(Item);
+            return RedirectToAction(nameof(Index));
+        }
+
+        //Delete
+        public async Task<IActionResult> Delete(int Id)
+        {
+            var item = await _service.GetByIdAsync(Id);
+            if (item == null) return View("NotFound");
+            return View(item);
+        }
+
+        [HttpPost, ActionName("Delete")]
+        public async Task<IActionResult> DeleteConfirmed(int Id)
+        {
+            var item = await _service.GetByIdAsync(Id);
+            if (item == null) return View("NotFound");
+
+            await _service.DeleteAsync(Id);
             return RedirectToAction(nameof(Index));
         }
     }

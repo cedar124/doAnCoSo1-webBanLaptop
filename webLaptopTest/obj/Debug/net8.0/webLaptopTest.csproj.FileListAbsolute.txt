@@ -278,8 +278,8 @@ C:\Users\cedar.LEYLINECORE\Downloads\complete-ecommerce-aspnet-mvc-application-m
 C:\Users\cedar.LEYLINECORE\Downloads\complete-ecommerce-aspnet-mvc-application-master\complete-ecommerce-aspnet-mvc-application-master\webLaptopTest\obj\Debug\net8.0\ref\webLaptopTest.dll
 E:\webLaptop\webLaptopTest\webLaptopTest\bin\Debug\net8.0\appsettings.Development.json
 E:\webLaptop\webLaptopTest\webLaptopTest\bin\Debug\net8.0\appsettings.json
-E:\webLaptop\webLaptopTest\webLaptopTest\bin\Debug\net8.0\webLaptopTest.staticwebassets.endpoints.json
 E:\webLaptop\webLaptopTest\webLaptopTest\bin\Debug\net8.0\webLaptopTest.staticwebassets.runtime.json
+E:\webLaptop\webLaptopTest\webLaptopTest\bin\Debug\net8.0\webLaptopTest.staticwebassets.endpoints.json
 E:\webLaptop\webLaptopTest\webLaptopTest\bin\Debug\net8.0\webLaptopTest.exe
 E:\webLaptop\webLaptopTest\webLaptopTest\bin\Debug\net8.0\webLaptopTest.deps.json
 E:\webLaptop\webLaptopTest\webLaptopTest\bin\Debug\net8.0\webLaptopTest.runtimeconfig.json

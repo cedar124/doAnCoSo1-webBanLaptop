@@ -21,6 +21,7 @@ namespace webLaptopTest.Data.Services
                 Name = data.Name,
                 Description = data.Description,
                 Price = data.Price,
+                Stock = data.Stock,
                 imgUrl = data.imgUrl,
                 imgUrl2 = data.imgUrl2,
                 CategoryId = data.CategoryId,
@@ -51,6 +52,7 @@ namespace webLaptopTest.Data.Services
                 dbItem.Name = data.Name;
                 dbItem.Description = data.Description;
                 dbItem.Price = data.Price;
+                dbItem.Stock = data.Stock;
                 dbItem.imgUrl = data.imgUrl;
                 dbItem.imgUrl2 = data.imgUrl2;
                 dbItem.CategoryId = data.CategoryId;

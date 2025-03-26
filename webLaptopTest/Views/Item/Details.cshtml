@@ -1,1 +1,58 @@
-﻿
+﻿@model Item
+
+@{
+    ViewData["Title"] = "Item details";
+}
+
+<div class="row">
+    <div class="col-md-8 offset-2">
+        <div class="card mb-12">
+            <div class="row g-0">
+                <div class="col-md-12">
+                    <div class="card-header text-white bg-dark">
+                        <p class="card-text">
+                            <h5 class="card-title">
+                                @Model.Name
+                            </h5>
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <img src="@Model.imgUrl" width="100%" alt="@Model.Name">
+                </div>
+                <div class="col-md-4">
+                    <img src="@Model.imgUrl2" width="100%" alt="@Model.Name">
+                </div>
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <p class="card-text">@Model.Description</p>
+                        <p class="card-text">
+                            <b>Category: </b>
+                            <a asp-controller="Category" asp-action="Index" asp-route-id="@Model.CategoryId">
+                                @Model.Category.Name
+                            </a>
+                        </p>
+                        <p class="card-text">
+                            <b>Manufacturer: </b>
+                            <a asp-controller="Manufacturer" asp-action="Index" asp-route-id="@Model.ManufacturerId">
+                                @Model.Manufacturer.Name
+                            </a>
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="card-footer">
+                        <p class="card-text">
+                            <a class="btn btn-outline-primary float-right" style="margin-left: 20px" asp-action="Index"> Back to List</a>
+                            @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
+                            {
+                                <a class="btn btn-danger float-right" asp-action="Delete" asp-route-id="@Model.Id"> Delete</a>
+                            }
+                            <a class="btn btn-success text-white " asp-controller="Orders" asp-action="AddItemToShoppingCart" asp-route-id="@Model.Id"><i class="bi bi-cart-plus"></i> Add to Cart</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

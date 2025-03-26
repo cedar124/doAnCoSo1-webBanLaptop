@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace webLaptopTest.Data.ViewModels
+namespace webLaptopTest.Models
 {
     public class NewItemVM
     {
@@ -13,6 +13,10 @@ namespace webLaptopTest.Data.ViewModels
         [Display(Name = "Item description")]
         [Required(ErrorMessage = "Description is required")]
         public string Description { get; set; }
+
+        [Display(Name = "Stock")]
+        [Required(ErrorMessage = "Required")]
+        public int Stock { get; set; }
 
         [Display(Name = "Price")]
         [Required(ErrorMessage = "Price is required")]
