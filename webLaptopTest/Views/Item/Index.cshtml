@@ -19,20 +19,18 @@
                             <p class="card-text">
                                 <h5 class="card-title">
                                     @item.Name
-                                    @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
-                                    {
-                                        <a class="text-white float-right" asp-action="Edit" asp-route-id="@item.Id"><i class="bi bi-pencil-square"></i></a>
-                                    }
                                     <a class="text-white float-right"></a>
                                 </h5>
                             </p>
                         </div>
                     </div>
-                    <div class="col-md-5">
+                    <div class="col-md-5 offset-1">
                         <img src="@item.imgUrl" width="100%" alt="@item.Name" />
+                    </div>
+                    <div class="col-md-5">
                         <img src="@item.imgUrl2" width="100%" alt="@item.Name" />
                     </div>
-                    <div class="col-md-7 d-flex flex-column">
+                    <div class="col-md-12 d-flex flex-column">
                         <div class="card-body flex-grow-1">
                             <p class="card-text">@item.Description</p>
                             <p class="card-text"><b>Price: </b>@item.Price</p>

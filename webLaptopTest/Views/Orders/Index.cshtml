@@ -15,6 +15,7 @@
                 <tr>
                     <th>Order ID</th>
                     <th>Items</th>
+                    <th>Address</th>
                     <th>Total</th>
                     @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
                     {
@@ -39,6 +40,7 @@
                                 }
                             </ul>
                         </td>
+                        <td class="align-middle">Address</td>
                         <td class="align-middle">
                             @order.OrderItems.Select(m => m.Item.Price * m.Amount).Sum().ToString()
                         </td>

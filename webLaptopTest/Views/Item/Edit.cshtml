@@ -68,6 +68,24 @@
                     </div>
                 </form>
             </div>
+            <div class="col-md-4 offset-2">
+                <img width="100%" id="ImageUrlPreview1" />
+            </div>
+            <div class="col-md-4">
+                <img width="100%" id="ImageUrlPreview2" />
+            </div>
         </div>
     </div>
 </div>
+@section Scripts {
+    <script>
+        $("#imgUrl").on("change", function () {
+            var output = document.getElementById("ImageUrlPreview1");
+            output.src = $(this).val();
+        })
+        $("#imgUrl2").on("change", function () {
+            var output = document.getElementById("ImageUrlPreview2");
+            output.src = $(this).val();
+        })
+    </script>
+}

@@ -14,14 +14,12 @@ namespace webLaptopTest.Controllers
         private readonly IItemService _itemService;
         private readonly ShoppingCart _shoppingCart;
         private readonly IOrdersService _ordersService;
-
         public OrdersController(IItemService itemService, ShoppingCart shoppingCart, IOrdersService ordersService)
         {
             _itemService = itemService;
             _shoppingCart = shoppingCart;
             _ordersService = ordersService;
         }
-
         public async Task<IActionResult> Index()
         {
             string UserId = User.FindFirstValue(ClaimTypes.NameIdentifier);
@@ -40,7 +38,6 @@ namespace webLaptopTest.Controllers
             };
             return View(response);
         }
-
         public async Task<IActionResult> AddItemToShoppingCart(int Id)
         {
             var item = await _itemService.GetItemByIdAsync(Id);
@@ -50,7 +47,6 @@ namespace webLaptopTest.Controllers
             }
             return RedirectToAction(nameof(ShoppingCart));
         }
-
         public async Task<IActionResult> RemoveItemFromShoppingCart(int id)
         {
             var item = await _itemService.GetItemByIdAsync(id);
@@ -60,7 +56,6 @@ namespace webLaptopTest.Controllers
             }
             return RedirectToAction(nameof(ShoppingCart));
         }
-
         public async Task<IActionResult> CompleteOrder()
         {
             var items = _shoppingCart.GetShoppingCartItems();

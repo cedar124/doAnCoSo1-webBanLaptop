@@ -61,12 +61,7 @@ app.UseAuthorization();
 
 app.UseAuthorization();
 
-app.UseEndpoints(endpoints =>
-{
-    endpoints.MapControllerRoute(
-        name: "default",
-        pattern: "{controller=Movies}/{action=Index}/{id?}");
-});
+app.UseEndpoints(endpoints =>{ _ = endpoints.MapControllerRoute(name: "default", pattern: "{controller=Item}/{action=Index}/{id?}"); });
 
 //Seed database
 ApplicationDbSeeder.Seed(app);

@@ -31,7 +31,7 @@ namespace webLaptopTest.Data.Services
             var order = new Order()
             {
                 UserId = userId,
-                Email = userEmailAddress
+                Email = userEmailAddress,
             };
             await _context.Orders.AddAsync(order);
             await _context.SaveChangesAsync();
