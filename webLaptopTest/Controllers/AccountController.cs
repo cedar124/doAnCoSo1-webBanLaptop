@@ -1,8 +1,13 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.ChangeTracking;
+using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using webLaptopTest.Data;
+using webLaptopTest.Data.Base;
+using webLaptopTest.Data.Services;
 using webLaptopTest.Data.Static;
 using webLaptopTest.Data.ViewModels;
 using webLaptopTest.Models;
@@ -22,13 +27,27 @@ namespace webLaptopTest.Controllers
             _context = context;
         }
 
-
         public async Task<IActionResult> Users()
         {
             var users = await _context.Users.ToListAsync();
             return View(users);
         }
 
+        /*public async Task<IActionResult> Address()
+        {
+            var address = await _context.Users.ToListAsync();
+            return View(address);
+        }*/
+        public IActionResult Address()
+        {
+            var currentUserId = _userManager.GetUserId(User);
+            var currentUser = _context.Users.FirstOrDefault(u => u.Id == currentUserId);
+            if (currentUser == null)
+            {
+                return NotFound();
+            }
+            return View(new List<ApplicationUser> { currentUser });
+        }
 
         public IActionResult Login() => View(new LoginVM());
 
@@ -76,7 +95,8 @@ namespace webLaptopTest.Controllers
             {
                 FullName = registerVM.FullName,
                 Email = registerVM.EmailAddress,
-                UserName = registerVM.EmailAddress
+                UserName = registerVM.EmailAddress,
+                Address = registerVM.Address
             };
             var newUserResponse = await _userManager.CreateAsync(newUser, registerVM.Password);
 
@@ -97,6 +117,5 @@ namespace webLaptopTest.Controllers
         {
             return View();
         }
-
     }
 }

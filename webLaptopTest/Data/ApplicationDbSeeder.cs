@@ -111,6 +111,7 @@ namespace webLaptopTest.Data
                         FullName = "Admin",
                         UserName = "admin-user",
                         Email = adminUserEmail,
+                        Address = "",
                         EmailConfirmed = true
                     };
                     await userManager.CreateAsync(newAdminUser, "Admin@123?");

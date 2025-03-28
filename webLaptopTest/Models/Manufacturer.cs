@@ -12,6 +12,5 @@ namespace webLaptopTest.Models
         [Display(Name = "Manufacturer Name")]
         [Required(ErrorMessage = "Manufacturer Name is required")]
         public string Name { get; set; }
-        public List<Item> Movies { get; set; }
     }
 }

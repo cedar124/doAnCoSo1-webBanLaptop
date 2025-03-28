@@ -40,7 +40,7 @@
                                 }
                             </ul>
                         </td>
-                        <td class="align-middle">Address</td>
+                        <td class="align-middle"> @order.User.Address </td>
                         <td class="align-middle">
                             @order.OrderItems.Select(m => m.Item.Price * m.Amount).Sum().ToString()
                         </td>

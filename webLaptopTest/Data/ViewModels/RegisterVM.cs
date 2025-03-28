@@ -11,6 +11,7 @@ namespace webLaptopTest.Data.ViewModels
         [Display(Name = "Email address")]
         [Required(ErrorMessage = "Email address is required")]
         public string EmailAddress { get; set; }
+        public string Address { get; set; }
 
         [Required]
         [DataType(DataType.Password)]

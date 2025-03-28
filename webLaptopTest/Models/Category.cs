@@ -12,6 +12,5 @@ namespace webLaptopTest.Models
         [Display(Name = "Category Name")]
         [Required(ErrorMessage = "Category name is required")]
         public string Name { get; set; }
-        public List<Item> Movies { get; set; }
     }
 }

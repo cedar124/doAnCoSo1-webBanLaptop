@@ -59,7 +59,7 @@ namespace webLaptopTest.Controllers
             return View(category);
         }
 
-        //Get: Cinemas/Delete/1
+        //Delete
         public async Task<IActionResult> Delete(int Id)
         {
             var category = await _service.GetByIdAsync(Id);
