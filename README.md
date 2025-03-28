@@ -10,5 +10,6 @@ Hi~
 - Thêm, sửa, xóa nhà sản xuất </br>
 - Thêm, sửa, xóa thể loại </br>
 - Cập nhật hệ thống đơn hàng, giỏ hàng </br>
-- Chưa có khả năng thanh toán, chưa lưu được địa chỉ khách hàng  </br>
-- giao diện cần nâng cấp
+- Chưa có khả năng thanh toán  </br>
+- Lưu địa chỉ vào tài khoản, chưa chỉnh sửa được địa chỉ </br>
+- giao diện cần nâng cấp 
