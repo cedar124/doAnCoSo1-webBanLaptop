@@ -7,7 +7,7 @@ Admin Account:
 - Email: admin@webLaptop.com
 - Pass: Admin@123?
 </br>
-Remember to change the connection string before running, the app will automatically create the db with an Admin account. Also the planning and document branch is no longer active, do not use that.
+Remember to change the connection string before running, the app will automatically create the db with an Admin account. Also the planning and document branch is no longer active, do not use that. You just need the .sln file and the webLaptopTest Folder, ignore everything else
 </br>
 This is an ASP.NET 8.0 MVC with MS SQL Server ecommerce webapp, with boostrap as frontend </br> </br> </br> </br> </br>
 ASP.NET Core 8.0 MVC 
