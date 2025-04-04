@@ -1,15 +1,39 @@
 # doAnCoSo1-webBanLaptop
 Hi~
-- trang sản phẩm cơ bản </br>
-- đã code tất cả chức năng </br>
-- giao diện chưa code </br>
-- chưa đưa chức năng ra giao diện </br>
-- tk admin: admin@webLaptop.com mk: Admin@123?
 </br>
-- Thêm, sửa, xóa, tìm kiếm sản phẩm </br>
-- Thêm, sửa, xóa nhà sản xuất </br>
-- Thêm, sửa, xóa thể loại </br>
-- Cập nhật hệ thống đơn hàng, giỏ hàng </br>
-- Chưa có khả năng thanh toán  </br>
-- Lưu địa chỉ vào tài khoản, chưa chỉnh sửa được địa chỉ </br>
-- giao diện cần nâng cấp 
+<h1>the project is now completed, it was a fun learning experience. Hopefully my career take off from here, and good luck to you, reader. </h1>
+</br>
+Admin Account:
+- Email: admin@webLaptop.com
+- Pass: Admin@123?
+</br>
+Remember to change the connection string before running, the app will automatically create the db with an Admin account.
+</br>
+This is an ASP.NET 8.0 MVC with MS SQL Server ecommerce webapp, with boostrap as frontend </br> </br> </br> </br> </br>
+ASP.NET Core 8.0 MVC 
+Model-View-Controller (MVC) pattern 
+Entity Framework Core 
+SQL Server Integration 
+CRUD Operations 
+Bootstrap 5 
+Responsive Web Design 
+Razor Views 
+Bootstrap Grid System 
+AJAX in ASP.NET Core 
+Data Binding in MVC 
+Dependency Injection in ASP.NET Core 
+Authentication and Authorization in ASP.NET Core 
+SQL Server Database Migration 
+SQL Server Connection String 
+ASP.NET Core Middleware 
+Custom Error Pages in MVC 
+Async Programming in ASP.NET Core 
+Bootstrap Modal Dialogs 
+Dynamic Content Rendering 
+SQL Server Stored Procedures 
+Validation in ASP.NET Core MVC 
+HTML Helpers in Razor Views 
+Partial Views and Layouts in MVC 
+WebSocket in ASP.NET Core 
+Bootstrap Navbar
+Somee
