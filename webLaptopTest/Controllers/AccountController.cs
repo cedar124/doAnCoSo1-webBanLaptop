@@ -32,12 +32,7 @@ namespace webLaptopTest.Controllers
             var users = await _context.Users.ToListAsync();
             return View(users);
         }
-
-        /*public async Task<IActionResult> Address()
-        {
-            var address = await _context.Users.ToListAsync();
-            return View(address);
-        }*/
+        //find the current user to show the address
         public IActionResult Address()
         {
             var currentUserId = _userManager.GetUserId(User);
@@ -49,6 +44,31 @@ namespace webLaptopTest.Controllers
             return View(new List<ApplicationUser> { currentUser });
         }
 
+        
+        [HttpGet]
+        public async Task<IActionResult> EditAddress()
+        {
+            var user = await _userManager.GetUserAsync(User);
+            if (user == null) return NotFound();
+            var model = new EditAddressVM { Address = user.Address };
+            return View(model);
+        }
+
+        // Handle the form submission
+        [HttpPost]
+        public async Task<IActionResult> EditAddress(EditAddressVM model)
+        {
+            if (!ModelState.IsValid) return View(model);
+            var user = await _userManager.GetUserAsync(User);
+            if (user == null) return NotFound();
+            user.Address = model.Address;
+            var result = await _userManager.UpdateAsync(user);
+            if (result.Succeeded)
+            {
+                return RedirectToAction("Address");
+            }
+            return View(model);
+        }
         public IActionResult Login() => View(new LoginVM());
 
         [HttpPost]

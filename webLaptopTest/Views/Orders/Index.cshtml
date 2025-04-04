@@ -1,5 +1,5 @@
 ﻿@model List<Order>
-
+@using webLaptopTest.Data.Static;
 @{
     ViewData["Title"] = "All orders";
 }
@@ -17,9 +17,11 @@
                     <th>Items</th>
                     <th>Address</th>
                     <th>Total</th>
+                    <th>Status</th>
                     @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
                     {
                         <th>User</th>
+                        <th>Actions</th>
                     }
                 </tr>
             </thead>
@@ -44,9 +46,11 @@
                         <td class="align-middle">
                             @order.OrderItems.Select(m => m.Item.Price * m.Amount).Sum().ToString()
                         </td>
+                        <td class="align-middle @(order.Status == "Accepted" ? "text-success" : order.Status == "Processing" ? "text-warning" : "text-danger")"> @order.Status </td>
                         @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
                         {
                             <td class="align-middle"> @order.User.FullName </td>
+                            <td class="align-middle"><a asp-controller="Orders" asp-action="EditStatus" asp-route-id="@order.Id" class="btn btn-sm btn-primary">Edit Status</a></td>
                         }
                     </tr>
                 }

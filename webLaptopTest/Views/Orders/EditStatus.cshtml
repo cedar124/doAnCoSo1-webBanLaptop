@@ -1,0 +1,25 @@
+﻿@model webLaptopTest.Data.ViewModels.EditOrderStatusVM
+
+<div class="row text">
+    <div class="col-md-8 offset-2">
+        <p>
+            <h1>Update Order Status</h1>
+        </p>
+        <div class="row">
+            <div class="col-md-8 offset-2">
+                <form asp-action="EditStatus" method="post">
+                    <input type="hidden" asp-for="Id" />
+                    <div class="form-group">
+                        <label asp-for="Status"></label>
+                        <select asp-for="Status" class="form-control" asp-items="new SelectList(Model.AvailableStatuses)">
+                            <option value="">----</option>
+                        </select>
+                        <span asp-validation-for="Status" class="text-danger"></span>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Update</button>
+                    <a class="btn btn-outline-secondary float-right" asp-action="Index">Back</a>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
