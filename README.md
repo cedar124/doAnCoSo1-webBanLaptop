@@ -1,13 +1,13 @@
 # doAnCoSo1-webBanLaptop
 Hi~
 </br>
-<h1>the project is now completed, it was a fun learning experience. Hopefully my career take off from here, and good luck to you, reader. </h1>
+<h2>the project is now completed, it was a fun learning experience. Hopefully my career take off from here, and good luck to you, reader. </h2>
 </br>
 Admin Account:
 - Email: admin@webLaptop.com
 - Pass: Admin@123?
 </br>
-Remember to change the connection string before running, the app will automatically create the db with an Admin account.
+Remember to change the connection string before running, the app will automatically create the db with an Admin account. Also the planning and document branch is no longer active, do not use that.
 </br>
 This is an ASP.NET 8.0 MVC with MS SQL Server ecommerce webapp, with boostrap as frontend </br> </br> </br> </br> </br>
 ASP.NET Core 8.0 MVC 
